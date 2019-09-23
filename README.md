@@ -106,7 +106,7 @@ Contienen la presentación de un catálogo con opciones de búsqueda, filtrado y
 ### Mapa de flujo
 Primeros acercamientos de como recorrerá el usuario la interfaz 
 
-<a href="https://files.slack.com/files-pri/T0NNB6T0R-FNA93PDAP/whatsapp_image_2019-09-23_at_10.14.10.jpeg">
+<a href="https://ibb.co/pRVr6hZ"><img src="https://i.ibb.co/cCfXKYt/Whats-App-Image-2019-09-23-at-10-14-10.jpg" alt="Whats-App-Image-2019-09-23-at-10-14-10" border="0"></a>
 
 ### Wireframe 1
 **Prototipo de baja fidelidad**
