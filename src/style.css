@@ -12,7 +12,7 @@ body{
     max-width: 1200px;
     margin: 20px auto;
 }
-
+ 
 header{
     display: flex;
     align-items: center;
@@ -219,13 +219,51 @@ header{
 }
 
 @media (max-width: 640px) {
-    .catalogue, .search{
-        grid-template-columns: repeat(1,1fr);
-    }
 
     .navBtn{
         font-size: 11px;
     }
+
+    .catalogue, .search{
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .characterItems{
+        display: grid;
+        grid-template-columns: (1,2fr);
+        grid-template-rows: (6,2fr);
+    }
+
+    .characterNameStyle{
+        grid-column: 1;
+        grid-row: 1;
+    }
+        
+    .characterImgStyle{
+        grid-column: 1;
+        grid-row: 2;
+    }
+        
+    .characterHeightStyle{
+        grid-column: 1;
+        grid-row: 3;
+    }
+        
+    .characterWeightStyle{
+        grid-column: 1;
+        grid-row: 4;
+    }
+        
+    .characterCandyCountStyle{
+        grid-column: 1;
+        grid-row: 5;
+    }
+        
+    .characterEggStyle{
+        grid-column: 1;
+        grid-row: 6;
+    }
+
 }
     
 @media (min-width: 640px) and (max-width: 1024px) {
