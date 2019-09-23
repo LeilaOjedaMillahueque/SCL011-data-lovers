@@ -12,7 +12,7 @@ body{
     max-width: 1200px;
     margin: 20px auto;
 }
- 
+
 header{
     display: flex;
     align-items: center;
@@ -148,53 +148,112 @@ header{
    border-radius: 15%;
 }
 
+.modalEggSpace{
+    width: 20px;
+   height: 60px;
+}
+
+.modalCandyCountSpace{
+    width: 20px;
+   height: 60px;
+}
+
+.modalWeightSpace{
+    width: 20px;
+   height: 60px;
+}
+
+.modalHeightSpace{
+    width: 20px;
+   height: 60px;
+}
+
+.modalImgSpace{
+    width: 50px;
+   height: 50px;
+}
+
+.modalNameSpace{
+    width: 0px;
+   height: 60px;
+}
+
+.modalStyle{
+    color: #001623;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.closeStyle{
+    color: #001623;
+    background: transparent;
+    border: 2px solid #001623;
+    border-radius: 28px;
+    padding: 2px 15px;
+}
+
+.closeStyle:hover{
+    background: #001623;
+    color: #fefefe;
+}
+
+.navigationSearch {
+    background: #fefefe;
+    border-radius: 25px;
+    margin: 30px 30px auto;
+    padding: 20px 20px;
+}
+
+.calculation{
+    color :#001623;
+    justify-content: center;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+
+}
+
+.filterValue{
+    background: #001623;
+    color:  #fefefe;
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+
+}
 
 @media (max-width: 640px) {
-
-    .navBtn{
-        font-size: 11px;
+    .modalCandyCountSpace{
+        width: 20px;
+        height: 20px;
     }
-
+    .modalEggSpace{
+        width: 100px;
+        height: 100px;
+    }
+    .modalHeightSpace{
+        width: 100px;
+        height: 100px;
+    }
+    .modalWeightSpace{
+        width: 100px;
+        height: 100px;
+    }
+    .modalImgSpace{
+        width: 50px;
+        height: 50px;
+    }
+    .modalNameSpace{
+        width: 30px;
+        height: 30px;
+    }
     .catalogue, .search{
         grid-template-columns: repeat(1,1fr);
     }
 
-    .characterItems{
-        display: grid;
-        grid-template-columns: (1,2fr);
-        grid-template-rows: (6,2fr);
+    .navBtn{
+        font-size: 11px;
     }
-
-    .characterNameStyle{
-        grid-column: 1;
-        grid-row: 1;
-    }
-        
-    .characterImgStyle{
-        grid-column: 1;
-        grid-row: 2;
-    }
-        
-    .characterHeightStyle{
-        grid-column: 1;
-        grid-row: 3;
-    }
-        
-    .characterWeightStyle{
-        grid-column: 1;
-        grid-row: 4;
-    }
-        
-    .characterCandyCountStyle{
-        grid-column: 1;
-        grid-row: 5;
-    }
-        
-    .characterEggStyle{
-        grid-column: 1;
-        grid-row: 6;
-    }
-
 }
     
 @media (min-width: 640px) and (max-width: 1024px) {
