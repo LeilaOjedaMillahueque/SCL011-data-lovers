@@ -1,6 +1,6 @@
 //Declaramos constante POKEMON de la data
-//const dataPokemon=window.POKEMON.pokemon;
-const dataPokemon=window.POKEMON.pokemon;
+//const pokemonList=window.POKEMON.pokemon;
+const pokemonList=window.POKEMON.pokemon;
 
 //Ocultamos select del filtrado
 document.getElementById("navigationSearch").style.display= "none";
@@ -27,7 +27,7 @@ catalogueOption.addEventListener("click", ()=>{
     document.getElementById("showSearch").style.display = "none";
 
     //Se recorre la data
-    for (let i=0; i<dataPokemon.length;i++){
+    for (let i=0; i<pokemonList.length;i++){
 
         //Declaro espacios para imprimir ficha y características, asignamos clases
         const catalogueSpace=document.createElement("div");
@@ -36,15 +36,15 @@ catalogueOption.addEventListener("click", ()=>{
 
         let numSpace=document.createElement("h3");
         numSpace.className="numSpace";
-        numSpace.textContent=(dataPokemon[i].num);
+        numSpace.textContent=(pokemonList[i].num);
         
         let nameSpace=document.createElement("h4");
         nameSpace.className="nameSpace";
-        nameSpace.textContent=(dataPokemon[i].name);
+        nameSpace.textContent=(pokemonList[i].name);
 
         let imgSpace=document.createElement("img");
         imgSpace.className="imgSpace";
-        imgSpace.src=(dataPokemon[i].img);
+        imgSpace.src=(pokemonList[i].img);
         
         //Declaramos botón del modal
         const modalBtn=document.createElement("button");
@@ -62,27 +62,27 @@ catalogueOption.addEventListener("click", ()=>{
 
             let modalNameSpace=document.createElement("h4");
             modalNameSpace.className="characterNameStyle";
-            modalNameSpace.textContent=(dataPokemon[i].name);
+            modalNameSpace.textContent=(pokemonList[i].name);
             
             let modalImgSpace=document.createElement("img");
             modalImgSpace.className="characterImgStyle";
-            modalImgSpace.src=(dataPokemon[i].img);
+            modalImgSpace.src=(pokemonList[i].img);
 
             let modalHeightSpace=document.createElement("p");
             modalHeightSpace.className="characterHeightStyle";
-            modalHeightSpace.textContent=("Altura " +(dataPokemon[i].height));
+            modalHeightSpace.textContent=("Altura " +(pokemonList[i].height));
 
             let modalWeightSpace=document.createElement("p");
             modalWeightSpace.className="characterWeightStyle";
-            modalWeightSpace.textContent=("Peso " +(dataPokemon[i].weight));
+            modalWeightSpace.textContent=("Peso " +(pokemonList[i].weight));
 
             let modalCandyCountSpace=document.createElement("p");
             modalCandyCountSpace.className="characterCandyCountStyle";
-            modalCandyCountSpace.textContent=("Contador de caramelos "+(dataPokemon[i].candy_count));
+            modalCandyCountSpace.textContent=("Contador de caramelos "+(pokemonList[i].candy_count));
 
             let modalEggSpace=document.createElement("p");
             modalEggSpace.className="characterEggStyle";
-            modalEggSpace.textContent=("Huevos " +(dataPokemon[i].egg));
+            modalEggSpace.textContent=("Huevos " +(pokemonList[i].egg));
 
             const buttonSpace=document.createElement("span");
             buttonSpace.className="closeStyle";
@@ -140,8 +140,17 @@ catalogueSearch.addEventListener("click", ()=>{
         search.className="search";
     
         //Declaramos parámetros del select??? AYUDA PARA ENTENDER!!!
-        let filterTypeValue=selectValue.options[selectValue.selectedIndex].value;
-        let pokemonList=window.filterByType(dataPokemon,filterTypeValue);
+        let filterTypeValue = selectValue.options[selectValue.selectedIndex].value;
+        let pokemonListResult = window.filterByType(pokemonList,filterTypeValue);
+        
+
+        let pokeCalculation = parseInt(filterTypeValue.length);
+        let pokePercent = (pokeCalculation/151)*100;
+        let pokePercentTwo = (pokePercent.toFixed(2));
+
+            const theCalculation = document.getElementById("calculation");
+            theCalculation.innerHTML = "¿Sabías qué en la región de Kanto existen " + pokePercentTwo + " % pokes de tipo " + filterTypeValue + " ?" ;
+    
 
         //Para volver a cero para cada seleccion??? AYUDA PARA ENTENDER!!!
         document.getElementById("searchRoot").innerHTML="";
@@ -157,19 +166,19 @@ catalogueSearch.addEventListener("click", ()=>{
             //Declaro espacios para imprimir según tipo, asignamos clases
             //NOMBRE
             let pokeName=document.createElement("h1");
-            pokeName.textContent=dataPokemon[i].name;
+            pokeName.textContent=pokemonList[i].name;
             //FOTOS
             let pokeImg=document.createElement("img");
-            pokeImg.src=dataPokemon[i].img;
+            pokeImg.src=pokemonList[i].img;
             //NUM
             let pokeNum=document.createElement("h3");
-            pokeNum.textContent=dataPokemon[i].num;
+            pokeNum.textContent=pokemonList[i].num;
             //TIPO 1
             let pokeType1=document.createElement("h2");
-            pokeType1.textContent=dataPokemon[i].type[0];
+            pokeType1.textContent=pokemonList[i].type[0];
             //TIPO 2
             let poketype2=document.createElement("h2");
-            poketype2.textContent=dataPokemon[i].type[1];
+            poketype2.textContent=pokemonList[i].type[1];
 
             pokemonSpace.appendChild(pokeNum);
             pokemonSpace.appendChild(pokeName);
@@ -178,17 +187,10 @@ catalogueSearch.addEventListener("click", ()=>{
             pokemonSpace.appendChild(poketype2);
             search.appendChild(pokemonSpace);
 
-            let pokeCalculation = filterByType.length;
-            let allPoke = dataPokemon.lenght;
-            let pokePercent = (pokeCalculation/allPoke)*100;
-            let pokePercentTwo = pokePercent.toFixed(2);
-
-            const theCalculation = document.getElementById("calculation");
-            theCalculation.innerHTML = "¿Sabías qué en la región de Kanto existen " + pokePercentTwo + " % pokes de tipo " + filterValue + " ?" ;
-    
+            
         //Mostrar tarjeta en el contenedor especificado
         document.getElementById("searchRoot").appendChild(search).innerHTML; 
-        };
-    };
+        }
+    }
 });//Fin botón búsqueda
 

@@ -1,6 +1,6 @@
-const filterByType = (dataPokemon, filterValue) => {
+const filterByType = (pokemonList, filterValue) => {
     
-    const resultType = dataPokemon.filter(Element => {
+    const resultType = pokemonList.filter(Element => {
         return Element.type.includes(filterValue);
 
         //versión marcia
