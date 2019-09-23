@@ -101,6 +101,8 @@ catalogueOption.addEventListener("click", ()=>{
             characterItems.appendChild(modalImgSpace);
             characterItems.appendChild(modalHeightSpace);
             characterItems.appendChild(modalWeightSpace);
+            characterItems.appendChild(modalCandyCountSpace);
+            characterItems.appendChild(modalEggSpace);
             characterItems.appendChild(buttonSpace);
             modalSpace.appendChild(characterItems);
             catalogueSpace.appendChild(modalSpace);

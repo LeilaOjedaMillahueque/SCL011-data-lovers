@@ -143,42 +143,12 @@ header{
    background: #fefefe;
    width: 20%;
    height: 60%;
-   padding: 2%;
+   padding: 2%; 
    margin: auto;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   flex-direction: column;
    border-radius: 15%;
 }
 
-.modalStyle{
-    color: #001623;
-    font-size: 18px;
-    font-weight: 300;
-}
 
-.closeStyle{
-    color: #001623;
-    background: transparent;
-    border: 2px solid #001623;
-    border-radius: 28px;
-    padding: 2px 15px;
-}
-
-.closeStyle:hover{
-    background: #001623;
-    color: #fefefe;
-}
-
-.navigationSearch {
-    background: #fefefe;
-    border-radius: 25px;
-    margin: 30px 30px auto;
-    padding: 20px 20px;
-}
-
-@media (max-width: 640px) {
     .catalogue, .search{
         grid-template-columns: repeat(1,1fr);
     }
@@ -218,6 +188,3 @@ header{
     }
 }
 
-.calculation{
-    color: white;
-}
