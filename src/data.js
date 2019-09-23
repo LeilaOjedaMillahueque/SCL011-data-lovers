@@ -1,11 +1,11 @@
-const filterByType = (pokemonList, filterValue) => {
+const dataPokemon=window.POKEMON.pokemon;
+window.dataPokemon=dataPokemon;
+ 
+const filterByType = (dataPokemon, filterValue) => {
     
     const resultType = pokemonList.filter(Element => {
         return Element.type.includes(filterValue);
-
-        //versión marcia
-        //return. element.type===condition;
-
+        
     });
 
     return resultType;

@@ -1,5 +1,4 @@
 //Declaramos constante POKEMON de la data
-//const pokemonList=window.POKEMON.pokemon;
 const pokemonList=window.POKEMON.pokemon;
 
 //Ocultamos select del filtrado
@@ -102,8 +101,6 @@ catalogueOption.addEventListener("click", ()=>{
             characterItems.appendChild(modalImgSpace);
             characterItems.appendChild(modalHeightSpace);
             characterItems.appendChild(modalWeightSpace);
-            characterItems.appendChild(modalCandyCountSpace);
-            characterItems.appendChild(modalEggSpace);
             characterItems.appendChild(buttonSpace);
             modalSpace.appendChild(characterItems);
             catalogueSpace.appendChild(modalSpace);
@@ -130,7 +127,7 @@ catalogueSearch.addEventListener("click", ()=>{
     document.getElementById("navigationSearch").style.display= "block";
 
     //Se declara constante y función del select 
-    const selectValue=document.getElementById("filterTypeValue");
+    const selectValue=document.getElementById("filterValue");
     selectValue.addEventListener("change", filterType);
     
     function filterType(){
@@ -140,23 +137,14 @@ catalogueSearch.addEventListener("click", ()=>{
         search.className="search";
     
         //Declaramos parámetros del select??? AYUDA PARA ENTENDER!!!
-        let filterTypeValue = selectValue.options[selectValue.selectedIndex].value;
-        let pokemonListResult = window.filterByType(pokemonList,filterTypeValue);
-        
-
-        let pokeCalculation = parseInt(filterTypeValue.length);
-        let pokePercent = (pokeCalculation/151)*100;
-        let pokePercentTwo = (pokePercent.toFixed(2));
-
-            const theCalculation = document.getElementById("calculation");
-            theCalculation.innerHTML = "¿Sabías qué en la región de Kanto existen " + pokePercentTwo + " % pokes de tipo " + filterTypeValue + " ?" ;
-    
+        let filterValue=selectValue.options[selectValue.selectedIndex].value;
+        let dataPokemon=window.filterByType(pokemonList,filterValue);
 
         //Para volver a cero para cada seleccion??? AYUDA PARA ENTENDER!!!
         document.getElementById("searchRoot").innerHTML="";
     
         //SEGUNDO FOR PARA RECORRER A LOS POKE
-        for(let i=0; i<pokemonList.length; i++){     
+        for(let i=0; i<dataPokemon.length; i++){     
             
             //CARTA PRINCIPAL espacio contenedor del pokemon filtrado 
             const pokemonSpace=document.createElement("div");
@@ -165,8 +153,8 @@ catalogueSearch.addEventListener("click", ()=>{
 
             //Declaro espacios para imprimir según tipo, asignamos clases
             //NOMBRE
-            let pokeName=document.createElement("h1");
-            pokeName.textContent=pokemonList[i].name;
+            let pokeName=document.createElement("h3");
+            pokeName.textContent=dataPokemon[i].name;
             //FOTOS
             let pokeImg=document.createElement("img");
             pokeImg.src=pokemonList[i].img;
@@ -174,23 +162,30 @@ catalogueSearch.addEventListener("click", ()=>{
             let pokeNum=document.createElement("h3");
             pokeNum.textContent=pokemonList[i].num;
             //TIPO 1
-            let pokeType1=document.createElement("h2");
-            pokeType1.textContent=pokemonList[i].type[0];
+            let pokeType1=document.createElement("h1");
+            pokeType1.textContent=dataPokemon[i].type[0];
             //TIPO 2
-            let poketype2=document.createElement("h2");
-            poketype2.textContent=pokemonList[i].type[1];
+            let poketype2=document.createElement("h1");
+            poketype2.textContent=dataPokemon[i].type[1];
 
-            pokemonSpace.appendChild(pokeNum);
             pokemonSpace.appendChild(pokeName);
             pokemonSpace.appendChild(pokeImg);
+            pokemonSpace.appendChild(pokeNum);
             pokemonSpace.appendChild(pokeType1);
             pokemonSpace.appendChild(poketype2);
             search.appendChild(pokemonSpace);
 
+            // Calculo 
             
+            let pokeCalculation = parseInt(filterValue.length);
+            let pokePercent = (pokeCalculation/151)*100;
+            let pokePercentTwo = (pokePercent.toFixed(2));
+
+            const theCalculation = document.getElementById("calculation");
+            theCalculation.innerHTML = "¿Sabías qué en la región de Kanto el " + pokePercentTwo + " % de los pokemones son de tipo " + filterValue + " ?" ;
+    
         //Mostrar tarjeta en el contenedor especificado
         document.getElementById("searchRoot").appendChild(search).innerHTML; 
         }
     }
 });//Fin botón búsqueda
-
