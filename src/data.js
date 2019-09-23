@@ -3,9 +3,9 @@ window.dataPokemon=dataPokemon;
  
 const filterByType = (dataPokemon, filterValue) => {
     
-    const resultType = pokemonList.filter(Element => {
+    const resultType = dataPokemon.filter(Element => {
         return Element.type.includes(filterValue);
-        
+
     });
 
     return resultType;
