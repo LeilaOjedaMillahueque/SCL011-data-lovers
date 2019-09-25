@@ -159,10 +159,10 @@ catalogueSearch.addEventListener("click", ()=>{
             pokeName.textContent=dataPokemon[i].name;
             //FOTOS
             let pokeImg=document.createElement("img");
-            pokeImg.src=pokemonList[i].img;
+            pokeImg.src=dataPokemon[i].img;
             //NUM
             let pokeNum=document.createElement("h3");
-            pokeNum.textContent=pokemonList[i].num;
+            pokeNum.textContent=dataPokemon[i].num;
             //TIPO 1
             let pokeType1=document.createElement("h1");
             pokeType1.textContent=dataPokemon[i].type[0];
